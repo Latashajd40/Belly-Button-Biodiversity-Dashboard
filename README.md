@@ -19,6 +19,9 @@ and the quantity of microbes found per individual.
 ### Belly Button Washing Frequency per Week <br>
 <img src="Images\bellyButtonwash.png" alt="Example Image" width="300" height="250">
 
+### Complete Dashboard <br>
+<img src="Images\complete_dashboard.png" alt="Example Image">
+
 ## $\color{lightskyblue}{\textsf{Files Included}}$
 - ### The [Images](Images) folder contains graphics of the intended output <br>
 - ### The [StarterCode](StarterCode) folder contains a nested folder [static\js](static\js):
