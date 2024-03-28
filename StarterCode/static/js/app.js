@@ -1,8 +1,10 @@
 // Get the url
 const url = "https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json";
 
+//request data from url
 d3.json(url).then(function (data) {
    
+    // initialize charts and demo info
     populateDropDown(data);
     let x = 0;
     initBar(data, x)
@@ -10,10 +12,8 @@ d3.json(url).then(function (data) {
     demoInfo(data, x)
     speedometer(data, x)
     console.log(data);
-    return data;
-
-        
-       });
+    return data;      
+});
 
 
 function populateDropDown(data) {
@@ -21,19 +21,19 @@ function populateDropDown(data) {
     // create an empty array to hold the ids
     const values = []
     
-        for (let i = 0; i < data.samples.length; i++) {
-            values.push(data.samples[i].id);
-                }
+    for (let i = 0; i < data.samples.length; i++) {
+        values.push(data.samples[i].id);
+    };
     
       // Use D3 to select the dropdown menu
-      let dropdownMenu = d3.select("#selDataset");
+    let dropdownMenu = d3.select("#selDataset");
     
       // Assign the value of the dropdown menu option to a variable
-        dropdownMenu.selectAll("option")
-            .data(values)
-            .enter()
-            .append("option")
-            .text(d => d);
+    dropdownMenu.selectAll("option")
+        .data(values)
+        .enter()
+        .append("option")
+        .text(d => d);
 };
 
 //  Function to handle the "optionChanged" event
@@ -44,6 +44,7 @@ function optionChanged(selectedValue) {
 
     d3.json(url).then(function (data) {
 
+        // call each function to repopulate dashboard
         initBar(data, i)
         initBubble(data, i)
         demoInfo(data,i)
@@ -53,13 +54,12 @@ function optionChanged(selectedValue) {
 
 function initBar(data, x) {
 
-        let trace = {
-       
-            x: data.samples[x].sample_values.slice(0, 10).reverse(),
-            y: data.samples[x].otu_ids.slice(0, 10).map(index => `OTU ${index}`).reverse(),
-            text: data.samples[x].otu_labels.slice(0, 10),
-            type: 'bar',
-            orientation: 'h'
+    let trace = {
+        x: data.samples[x].sample_values.slice(0, 10).reverse(),
+        y: data.samples[x].otu_ids.slice(0, 10).map(index => `OTU ${index}`).reverse(),
+        text: data.samples[x].otu_labels.slice(0, 10),
+        type: 'bar',
+        orientation: 'h'
         };
 
         let initdata = [trace];
@@ -68,7 +68,8 @@ function initBar(data, x) {
             height: 400,
             width: 400,
             margin:{'t':0,'l':150,'b':25,'r':0}
-        };
+    };
+        // plot bar chart
         Plotly.newPlot("bar", initdata, layout);  
        
 };
@@ -85,7 +86,6 @@ function initBubble(data,x) {
             color: data.samples[x].otu_ids,
             sizeref: .045,
             sizemode: 'area'
-            
         }
       };
       
@@ -96,62 +96,65 @@ function initBubble(data,x) {
         margin:{'t':50,'l':100,'b':50,'r':0}
       };
       
+    // plot the bubble chart
       Plotly.newPlot('bubble', data, layout);   
-}
+};
 
 function demoInfo(data, x) {
   
-    let info = data.metadata[x]
+    let info = data.metadata[x];
 
-    const pCard = document.getElementById("sample-metadata")
-    pCard.innerHTML = ""
+    const pCard = document.getElementById("sample-metadata");
+    pCard.innerHTML = "";
     pCard.innerHTML += `id: ${info.id}<br> ethnicity: ${info.ethnicity}<br> gender: ${info.gender}<br>
-                         age: ${info.location}<br> bbtype: ${info.bbtype}<br> wfreq: ${info.wfreq}`
-}
+                         age: ${info.location}<br> bbtype: ${info.bbtype}<br> wfreq: ${info.wfreq}`;
+};
 
 function speedometer(data, x) {
     
-    // console.log(data.metadata[x].wfreq);
     if (data.metadata[x].wfreq === null) {
         var washes = 0; 
     } else {
         var washes = data.metadata[x].wfreq;
-    }
+    };
         
 
-  // Create data for the gauge chart
-var data = [{
-    type: "indicator",
-    mode: "gauge",
-    value: washes, // Set the initial value  
-    gauge: {
-        line: {width: 4},
-        axis: {range: [0, 9], ticks: "", showticklabels: false},
-        bar: {color:  'rgba(0, 0, 0, 0)', shape: {width: 2.5}},
-        bgcolor: "white",
-        borderwidth: 0,
+    // populate the gauge chart
+    var data = [{
+        type: "indicator",
+        mode: "gauge",
+        value: washes,  
+        gauge: {
+            line: { width: 4 },
+        
+            // set the range for the chart
+            axis: {range: [0, 9], ticks: "", showticklabels: false},
+            bar: {color:  'rgba(0, 0, 0, 0)', shape: {width: 2.5}},
+            bgcolor: "white",
+            borderwidth: 0,
         steps: [
-        { range: [0, 1], color: "#f7f3eb"},
-        { range: [1, 2], color: "#f3f0e5"},
-        { range: [2, 3], color: "#e2e1c5"},
-        { range: [3, 4], color: "#e0e5af"},
-        { range: [4, 5], color: "#bbc17e"},
-        { range: [5, 6], color: "#84a07b"},
-        { range: [6, 7], color: "#87c080"},
-        { range: [7, 8], color: "#85bd8b"},
-        { range: [8, 9], color: "#61836c"}
-      ]
+            { range: [0, 1], color: "#f7f3eb"},
+            { range: [1, 2], color: "#f3f0e5"},
+            { range: [2, 3], color: "#e2e1c5"},
+            { range: [3, 4], color: "#e0e5af"},
+            { range: [4, 5], color: "#bbc17e"},
+            { range: [5, 6], color: "#84a07b"},
+            { range: [6, 7], color: "#87c080"},
+            { range: [7, 8], color: "#85bd8b"},
+            { range: [8, 9], color: "#61836c"}
+            ]
+        }
     }
-    }];
+    ];
 
     let x0; // used in changing the angle of the needle
     let y0; // used in changing the angle of the needle
   
-
+    // coordinates for the needle
     x0 = [.08, .08, .1, .36, .51, .65, .78, .9, .92, .92];
     y0 = [.16, .25, .48, .7, .75, .7, .6, .45, .25, .16];
 
-    // Add labels to the gauge chart
+// Add labels to the gauge chart
 var labels = [
    
     { text: '<b>0-1<b>', showarrow: false, x: 0.02, y: .2 },
@@ -170,48 +173,41 @@ var labels = [
     annotations: labels
   };
 
-
 // Create layout options for the gauge chart
-    var layout = {
-        width: 550,
-        height: 450,
-        title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week" },
-        annotations: labels,
-                shapes: [{
-            type: 'line',
-            x0: x0[washes],
-            y0: y0[washes],
-            x1: .5,
-            y1: .15,
-            line: {
-                color: '#850000',
-                width: 4
+var layout = {
+    width: 550,
+    height: 450,
+    title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week" },
+    annotations: labels,
+    shapes: [{
+        type: 'line',
+        x0: x0[washes],
+        y0: y0[washes],
+        x1: .5,
+        y1: .15,
+        line: {
+            color: '#850000',
+            width: 4
             }
-        },
-        
+        },       
         {
+            // this is the end point of the needle
             type: 'circle',
-            x0: .48, // x-coordinate of the circle
-            y0: 0.2, // y-coordinate of the circle (same as the end of the needle)
-            x1: 0.54, // x-radius of the circle
-            y1: 0.1, // y-radius of the circle
+            x0: .48, 
+            y0: 0.2, 
+            x1: 0.54, 
+            y1: 0.1, 
             line: {
                 color: '#850000',
                 width: 2
             },
             fillcolor: '#850000'           
-        }
-              
+        }       
     ]
-    };
-    
-  
+    }; 
   
   // Plot the gauge chart
-  Plotly.newPlot('gauge', data, layout);
-    
-    
-
+  Plotly.newPlot('gauge', data, layout);   
 }
 
   
