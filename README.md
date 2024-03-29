@@ -1,4 +1,4 @@
-# <h1 style="color: DarkOrange">Belly Button Biodiversity Dashboard</h1>
+<h1 style="color: DarkOrange">Belly Button Biodiversity Dashboard</h1>
 
 ## $\color{lightskyblue}{\textsf{Description}}$
 This dashboard presents findings from the 2012 study of microbial diversity in human belly buttons.  A total of 60 
