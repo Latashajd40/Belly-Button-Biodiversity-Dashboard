@@ -1,10 +1,10 @@
 # $\color{DarkOrange}{\textsf{Belly Button Biodiversity Dashboard}}$
 
 ## $\color{lightskyblue}{\textsf{Description}}$
-This dashboard presents findings from the 2012 study of microbial diversity in human belly buttons.  A total of 60 belly buttons were<br> 
-examined, revealing more than 70% of sampled navels harbored operational taxonomic units (OTUs).  The dashboard showcases the 10 most <br>
-prevalent OTUs found in the navel by their respective ID number, accompanied by demographic information, frequency of navel washes per week, <br>
-and the quantity of microbes found per individual.
+This dashboard presents findings from the 2012 study of microbial diversity in human belly buttons.  A total of 60 
+belly buttons were examined, revealing more than 70% of sampled navels harbored operational taxonomic units (OTUs).<br>
+The dashboard showcases the 10 most prevalent OTUs found in the navel by their respective ID number, accompanied by<br>
+ demographic information, frequency of navel washes per week, and the quantity of microbes found per individual.
 
 ## $\color{lightskyblue}{\textsf{Example Outputs}}$
 ### Top 10 OTUs found per individual <br>
