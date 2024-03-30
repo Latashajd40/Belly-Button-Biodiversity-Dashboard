@@ -8,19 +8,19 @@ accompanied by demographic information, frequency of navel washes per week, and 
 found per individual.
 
 <h2 style="color: lightskyblue">Example Outputs</h2>
-<h3>Top 10 OTUs found per individual</h3> <br>
+<h3>Top 10 OTUs found per individual</h3>
 <img src="Images\barChart.png" alt="Example Image" width="500" height="300"><br>
 
-<h3>The OTUs detected per individual are represented by their corresponding ID numbers</h3<br>
+<h3>The OTUs detected per individual are represented by their corresponding ID numbers</h3>
 <img src="Images\bubbleChart.png" alt="Example Image"><br>
 
-<h3>Demographic information for each individual categorized by ID number</h3> <br>
+<h3>Demographic information for each individual categorized by ID number</h3>
 <img src="Images\demo.png" alt="Example Image" width="200" height="250">
 
 <h3>Belly Button Washing Frequency per Week </h3><br>
 <img src="Images\bellyButtonwash.png" alt="Example Image" width="300" height="250">
 
-<h3>Complete Dashboard</h3><br>
+<h3>Complete Dashboard</h3>
 <img src="Images\complete_dashboard.png" alt="Example Image">
 
 <h2 style="color: lightskyblue">Files Included</h2>
@@ -34,7 +34,7 @@ found per individual.
 `Javascript` , `Plotly`, `HTML`, `Bootstrap`
 
 <h2 style="color: lightskyblue">Usage</h2>
-### The dropdown menu operates dynamically, facilitating automatic updates to the dashboard upon selecting a new option. <br>
+<h3>The dropdown menu operates dynamically, facilitating automatic updates to the dashboard upon selecting a new option.</h3><br>
 <img src="Images\dropdown.png" alt="Example Image" width="150" height="75"><br><br>
 
 <h2 style="color: lightskyblue">Data Source</h2>
