@@ -35,7 +35,7 @@ found per individual.
 
 <h2 style="color: lightskyblue">Usage</h2>
 <h3>The dropdown menu operates dynamically, facilitating automatic updates to the dashboard upon selecting a new option.</h3><br>
-<img src="Images\dropdown.png" alt="Example Image" width="150" height="75"><br><br>
+<img src="Images\dropdown.png" alt="Example Image" width="150" height="75">
 
 <h2 style="color: lightskyblue">Data Source</h2>
 Hulcr, J. et al. (2012) A Jungle in There: Bacteria in Belly Buttons are Highly <br>
