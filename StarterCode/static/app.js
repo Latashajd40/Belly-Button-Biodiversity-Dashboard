@@ -93,7 +93,7 @@ function initBubble(data,x) {
       
       var layout = {
         showlegend: false,
-        margin:{'t':50,'l':100,'b':50,'r':0}
+        margin:{'t':50,'l':100,'b':50,'r':50}
       };
       
     // plot the bubble chart
